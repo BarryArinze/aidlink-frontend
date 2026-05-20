@@ -1,18 +1,37 @@
 # AidLink Frontend
 
-A production-grade decentralized humanitarian aid platform frontend built on the Stellar blockchain.
+<div align="center">
+
+![AidLink Logo](https://via.placeholder.com/150)
+
+**A production-grade decentralized humanitarian aid platform frontend built on the Stellar blockchain**
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Next.js](https://img.shields.io/badge/Next.js-15-black)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)](https://www.typescriptlang.org/)
+[![Stellar](https://img.shields.io/badge/Stellar-Soroban-purple)](https://www.stellar.org/)
+[![CI/CD](https://github.com/BarryArinze/aidlink-frontend/actions/workflows/ci.yml/badge.svg)](https://github.com/BarryArinze/aidlink-frontend/actions/workflows/ci.yml)
+
+[Features](#-features) • [Tech Stack](#-tech-stack) • [Installation](#-installation) • [Documentation](#-documentation) • [Contributing](#-contributing)
+
+</div>
 
 ## 🌟 Features
 
-- **Transparent Donations**: Every transaction is tracked on the Stellar blockchain
-- **Campaign Management**: Create, fund, and track humanitarian aid campaigns
+- **Transparent Donations**: Every transaction is tracked on the Stellar blockchain for full transparency
+- **Campaign Management**: Create, fund, and track humanitarian aid campaigns with advanced filtering
 - **Beneficiary Portal**: Claim aid with QR verification and track claim history
 - **Admin Dashboard**: Verify beneficiaries, moderate campaigns, and monitor platform activity
-- **Real-time Analytics**: Track donations, distributions, and impact metrics
-- **Multi-wallet Support**: Compatible with Freighter, Rabet, XBull, and more
-- **Responsive Design**: Optimized for desktop, tablet, and mobile devices
-- **Dark/Light Mode**: Built-in theme switching
-- **Accessibility**: WCAG 2.1 AA compliant
+- **Real-time Analytics**: Track donations, distributions, and impact metrics with live updates
+- **Multi-wallet Support**: Compatible with Freighter, Rabet, XBull, and more wallet providers
+- **Responsive Design**: Optimized for desktop, tablet, and mobile devices with bottom navigation
+- **Dark/Light Mode**: Built-in theme switching with smooth transitions
+- **Accessibility**: WCAG 2.1 AA compliant for inclusive design
+- **Gamification**: Impact badges and achievements to encourage donor engagement
+- **Social Sharing**: Share campaigns on X, Facebook, LinkedIn with one click
+- **Campaign Comparison**: Compare up to 3 campaigns side-by-side for informed decisions
+- **Export Functionality**: Export donation history in CSV or JSON formats
+- **Notification Center**: Real-time notifications for donations and updates
 
 ## 🚀 Tech Stack
 
@@ -165,10 +184,12 @@ docker push your-registry/aidlink-frontend
 
 ## 📚 Documentation
 
-- [Architecture Documentation](./docs/ARCHITECTURE.md)
-- [Component Documentation](./docs/COMPONENTS.md)
-- [API Documentation](./docs/API.md)
-- [Contributing Guide](./docs/CONTRIBUTING.md)
+- [Architecture Documentation](./docs/ARCHITECTURE.md) - System architecture and design patterns
+- [Component Documentation](./docs/COMPONENTS.md) - Reusable component library
+- [API Documentation](./docs/API.md) - API endpoints and integration guide
+- [Deployment Guide](./docs/DEPLOYMENT.md) - Deployment instructions for various platforms
+- [Testing Guide](./docs/TESTING.md) - Testing strategies and best practices
+- [Contributing Guide](./docs/CONTRIBUTING.md) - How to contribute to the project
 
 ## 🤝 Contributing
 
@@ -188,3 +209,25 @@ This project is licensed under the MIT License.
 ## 📞 Support
 
 For support, email support@aidlink.org or open an issue on GitHub.
+
+## 🔗 Links
+
+- [Stellar Documentation](https://developers.stellar.org/)
+- [Soroban Documentation](https://soroban.stellar.org/)
+- [Next.js Documentation](https://nextjs.org/docs)
+- [shadcn/ui Components](https://ui.shadcn.com/)
+
+## 🌍 Live Demo
+
+Check out the live demo at [demo.aidlink.org](https://demo.aidlink.org) (coming soon)
+
+## 📈 Roadmap
+
+- [ ] Multi-language support (i18n)
+- [ ] Advanced analytics dashboard
+- [ ] Mobile app (React Native)
+- [ ] AI-powered campaign recommendations
+- [ ] Integration with more blockchain networks
+- [ ] Advanced reporting features
+- [ ] Video verification for beneficiaries
+- [ ] Smart contract audit and verification
