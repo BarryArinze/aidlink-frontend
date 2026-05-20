@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { CampaignFilters, CampaignFilters as CampaignFiltersType } from '@/components/features/campaigns/campaign-filters'
+import { ShareButton } from '@/components/features/social/share-button'
 import { Search, Heart, TrendingUp, Clock } from 'lucide-react'
 import { useState, useMemo } from 'react'
 import Link from 'next/link'
@@ -242,9 +243,16 @@ export default function CampaignsPage() {
                       View Details
                     </Button>
                   </Link>
-                  <Button variant="outline" className="w-full">
-                    Donate Now
-                  </Button>
+                  <div className="flex gap-2">
+                    <Button variant="outline" className="flex-1">
+                      Donate Now
+                    </Button>
+                    <ShareButton
+                      title={campaign.title}
+                      description={campaign.description}
+                      url={`${typeof window !== 'undefined' ? window.location.origin : ''}/campaigns/${campaign.id}`}
+                    />
+                  </div>
                 </div>
               </CardContent>
             </Card>
