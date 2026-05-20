@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { CampaignFilters, CampaignFilters as CampaignFiltersType } from '@/components/features/campaigns/campaign-filters'
 import { ShareButton } from '@/components/features/social/share-button'
+import { CampaignComparison } from '@/components/features/campaigns/campaign-comparison'
 import { Search, Heart, TrendingUp, Clock } from 'lucide-react'
 import { useState, useMemo } from 'react'
 import Link from 'next/link'
@@ -171,6 +172,7 @@ export default function CampaignsPage() {
               onFiltersChange={setFilters}
               availableNGOs={availableNGOs}
             />
+            <CampaignComparison campaigns={filteredCampaigns} />
             <Link href="/campaigns/create">
               <Button size="sm">
                 Create Campaign
