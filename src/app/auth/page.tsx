@@ -16,26 +16,32 @@ export default function AuthPage() {
   const handleConnectWallet = async () => {
     setIsConnecting(true)
     try {
-      // Simulate wallet connection - in production, integrate with Stellar Wallet Kit
-      await new Promise((resolve) => setTimeout(resolve, 1500))
+      const { walletService } = await import('@/lib/wallet/wallet-service')
       
-      const mockAddress = 'GB5XWAMU7QNOZBU4K7L5KGK46XB5HQDJC7W3COSKZQD5NVD4M7Y4Q2K7'
+      // Try to connect with Freighter
+      const walletInfo = await walletService.connectFreighter()
+      
+      // Get balance from Soroban SDK
+      const { sorobanSDK } = await import('@/lib/soroban/sdk')
+      const balance = await sorobanSDK.getBalance(walletInfo.address)
+      
       setWallet({
         isConnected: true,
-        address: mockAddress,
-        publicKey: mockAddress,
+        address: walletInfo.address,
+        publicKey: walletInfo.publicKey,
         network: 'testnet',
-        balance: '1000',
+        balance,
       })
       
       toast.success('Wallet connected successfully!', {
-        description: 'You are now connected to the Stellar testnet',
+        description: `Connected to ${walletInfo.address.substring(0, 8)}...${walletInfo.address.substring(walletInfo.address.length - 4)}`,
       })
       
       router.push('/dashboard')
     } catch (error) {
+      console.error('Wallet connection error:', error)
       toast.error('Failed to connect wallet', {
-        description: 'Please try again or use a different wallet',
+        description: 'Please make sure Freighter is installed and try again',
       })
     } finally {
       setIsConnecting(false)
