@@ -3,6 +3,7 @@
 import { Button } from '@/components/ui/button'
 import { useWalletStore } from '@/store/wallet-store'
 import { NotificationCenter } from '@/components/features/notification-center'
+import { ThemeToggle } from '@/components/features/theme/theme-toggle'
 import { Wallet, LogOut, Menu, X } from 'lucide-react'
 import { useState } from 'react'
 import Link from 'next/link'
@@ -28,6 +29,7 @@ export function Navigation() {
           <Link href="/about" className="text-sm font-medium hover:text-primary">
             About
           </Link>
+          <ThemeToggle />
           {isConnected ? (
             <>
               <Link href="/dashboard" className="text-sm font-medium hover:text-primary">
@@ -68,6 +70,10 @@ export function Navigation() {
             <Link href="/about" className="block text-sm font-medium">
               About
             </Link>
+            <div className="flex items-center justify-between">
+              <span className="text-sm font-medium">Theme</span>
+              <ThemeToggle />
+            </div>
             {isConnected ? (
               <>
                 <Link href="/dashboard" className="block text-sm font-medium">
