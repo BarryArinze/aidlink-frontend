@@ -11,6 +11,7 @@ import { formatAddress, formatAmount } from '@/lib/utils'
 import { DonationChart } from '@/components/features/analytics/donation-chart'
 import { ImpactChart } from '@/components/features/analytics/impact-chart'
 import { CampaignCardSkeleton, StatsCardSkeleton, TableRowSkeleton } from '@/components/features/loading/skeleton-card'
+import { ImpactBadges, getDefaultBadges } from '@/components/features/gamification/impact-badges'
 import { 
   Heart, 
   TrendingUp, 
@@ -34,6 +35,8 @@ export default function DashboardPage() {
     const timer = setTimeout(() => setIsLoading(false), 1500)
     return () => clearTimeout(timer)
   }, [])
+
+  const badges = getDefaultBadges()
 
   if (!isConnected) {
     return (
@@ -172,6 +175,7 @@ export default function DashboardPage() {
             <TabsTrigger value="campaigns">Campaigns</TabsTrigger>
             <TabsTrigger value="transactions">Transactions</TabsTrigger>
             <TabsTrigger value="analytics">Analytics</TabsTrigger>
+            <TabsTrigger value="badges">Badges</TabsTrigger>
           </TabsList>
 
           <TabsContent value="campaigns" className="space-y-4">
@@ -301,6 +305,10 @@ export default function DashboardPage() {
               <DonationChart data={donationData} />
               <ImpactChart data={impactData} />
             </div>
+          </TabsContent>
+
+          <TabsContent value="badges" className="space-y-4">
+            <ImpactBadges badges={badges} />
           </TabsContent>
         </Tabs>
       </main>
