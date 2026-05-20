@@ -12,6 +12,7 @@ import { DonationChart } from '@/components/features/analytics/donation-chart'
 import { ImpactChart } from '@/components/features/analytics/impact-chart'
 import { CampaignCardSkeleton, StatsCardSkeleton, TableRowSkeleton } from '@/components/features/loading/skeleton-card'
 import { ImpactBadges, getDefaultBadges } from '@/components/features/gamification/impact-badges'
+import { useRealTimeTransactions } from '@/hooks/use-real-time-transactions'
 import { 
   Heart, 
   TrendingUp, 
@@ -37,6 +38,35 @@ export default function DashboardPage() {
   }, [])
 
   const badges = getDefaultBadges()
+
+  const mockTransactions = [
+    {
+      id: '1',
+      type: 'donation' as const,
+      to: 'Emergency Relief Campaign',
+      amount: 500,
+      status: 'completed' as const,
+      timestamp: new Date(Date.now() - 3600000).toISOString(),
+    },
+    {
+      id: '2',
+      type: 'donation' as const,
+      to: 'Medical Supplies Campaign',
+      amount: 250,
+      status: 'completed' as const,
+      timestamp: new Date(Date.now() - 86400000).toISOString(),
+    },
+    {
+      id: '3',
+      type: 'distribution' as const,
+      to: 'Beneficiary #1234',
+      amount: 100,
+      status: 'completed' as const,
+      timestamp: new Date(Date.now() - 172800000).toISOString(),
+    },
+  ]
+
+  const transactions = useRealTimeTransactions(mockTransactions)
 
   if (!isConnected) {
     return (
@@ -278,8 +308,8 @@ export default function DashboardPage() {
                   {isLoading ? (
                     <TableRowSkeleton />
                   ) : (
-                    mockTransactions.map((tx) => (
-                      <TableRow key={tx.id}>
+                    transactions.map((tx) => (
+                      <TableRow key={tx.id} className="animate-in fade-in slide-in-from-top-2 duration-300">
                         <TableCell className="capitalize">{tx.type}</TableCell>
                         <TableCell>{tx.to}</TableCell>
                         <TableCell>{formatAmount(tx.amount)} XLM</TableCell>
