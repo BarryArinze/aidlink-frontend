@@ -2,6 +2,7 @@
 
 import { Button } from '@/components/ui/button'
 import { useWalletStore } from '@/store/wallet-store'
+import { NotificationCenter } from '@/components/features/notification-center'
 import { Wallet, LogOut, Menu, X } from 'lucide-react'
 import { useState } from 'react'
 import Link from 'next/link'
@@ -33,6 +34,7 @@ export function Navigation() {
                 Dashboard
               </Link>
               <div className="flex items-center space-x-2">
+                <NotificationCenter />
                 <span className="text-sm text-muted-foreground">{formatAddress(address || '')}</span>
                 <Button variant="ghost" size="icon" onClick={disconnect}>
                   <LogOut className="h-4 w-4" />
